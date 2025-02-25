@@ -1,0 +1,14 @@
+use("platzi_store")
+// db.inventory.updateMany(
+//     // Query operators
+//     { qty: { $ne: 20 } },
+//     // update - operators
+//     { $set: {
+//         qty: 10 
+//     }}
+// )
+
+db.inventory.updateMany(
+    { qty: { $ne: 20 } },  // Filtra los documentos donde qty no es igual a 20
+    { $set: { fecha: new Date() } }  // Agrega el campo "fecha" con la fecha y hora actuales
+)

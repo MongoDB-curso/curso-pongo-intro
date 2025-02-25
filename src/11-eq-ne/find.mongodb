@@ -1,0 +1,16 @@
+use("platzi_store")
+
+// db.inventory.find()
+
+const startOfDay = new Date();
+startOfDay.setHours(0, 0, 0, 0); // Establece la fecha a las 00:00:00 del día actual
+
+const endOfDay = new Date();
+endOfDay.setHours(23, 59, 59, 999); // Establece la fecha a las 23:59:59 del día actual
+
+db.inventory.find({
+  fecha: {
+    $gte: startOfDay, // Fecha mayor o igual a las 00:00:00 de hoy
+    $lt: endOfDay     // Fecha menor que las 23:59:59 de hoy
+  }
+});
